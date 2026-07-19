@@ -1,10 +1,13 @@
 from flask import Flask, render_template, request, jsonify
 import os
 import fitz  # PyMuPDF
+import nltk
+
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lsa import LsaSummarizer
-
+nltk.download("punkt")
+nltk.download("punkt_tab")
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024  # 50 MB
 
